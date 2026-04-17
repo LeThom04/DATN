@@ -1,0 +1,37 @@
+[
+  {
+    "keyword": "khuôn bánh",
+    "type": "success",
+    "expected": "Có sản phẩm"
+  },
+  {
+    "keyword": "abc2004",
+    "type": "not_found",
+    "expected": "Không có sản phẩm"
+  },
+  {
+    "keyword": "túi zip",
+    "type": "success",
+    "expected": "Có sản phẩm"
+  },
+  {
+    "keyword": "",
+    "type": "empty",
+    "expected": "Không có sản phẩm"
+  },
+  {
+    "keyword": "#@$^%",
+    "type": "not_found",
+    "expected": "Không có sản phẩm"
+  },
+  {
+    "keyword": "123456",
+    "type": "not_found",
+    "expected": "Không có sản phẩm"
+  },
+  {
+    "keyword": "bot lam banh",
+    "type": "success",
+    "expected": "Có sản phẩm"
+  }
+]

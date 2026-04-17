@@ -1,0 +1,50 @@
+[
+  {
+    "ho": "Lê",
+    "ten": "Thơm",
+    "email": "thomle123@gmail.com",
+    "matkhau": "Thomhihi",
+    "type": "register_success",
+    "expected": "TÀI KHOẢN CỦA BẠN"
+  },
+  {
+    "ho": "Le",
+    "ten": "Thom",
+    "email": "thomhihi2004",
+    "matkhau": "hfdt*g",
+    "type": "email_invalid",
+    "expected": "Please include an '@'"
+  },
+  {
+    "ho": "Lê",
+    "ten": "Thơm",
+    "email": "thomhihi@gmail.com",
+    "matkhau": "thom",
+    "type": "password_short",
+    "expected": "Mật khẩu quá ngắn"
+  },
+  {
+    "ho": "",
+    "ten": "Thom",
+    "email": "thomhihi@gmail.com",
+    "matkhau": "Thom@04",
+    "type": "ho_empty",
+    "expected": "Please fill out this field"
+  },
+  {
+    "ho": "Lê",
+    "ten": "Thơm",
+    "email": "",
+    "matkhau": "Thom@04",
+    "type": "email_empty",
+    "expected": "Please fill out this field"
+  },
+  {
+    "ho": "Lê",
+    "ten": "Thơm",
+    "email": "thomhihi@gmail.com",
+    "matkhau": "",
+    "type": "password_empty",
+    "expected": "Please fill out this field"
+  }
+]

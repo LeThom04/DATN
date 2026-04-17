@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.13.7 on win32)" generated="2026-03-31T13:36:25.569585" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Register" source="C:\LeThiThom\DATN\tests\test_register.robot">
+<kw name="Open Browser To Website" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-03-31T13:36:26.430210" level="INFO">Opening browser 'Chrome' to base url 'https://bepxinhvn.vn/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-03-31T13:36:26.429892" elapsed="5.107506"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-03-31T13:36:31.538127" elapsed="0.092109"/>
+</kw>
+<status status="PASS" start="2026-03-31T13:36:26.428646" elapsed="5.201913"/>
+</kw>
+<test id="s1-t1" name="Register Data Driven (Type)" line="16">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Load Json Data" owner="data_reader">
+<arg>data/Data_Register.json</arg>
+<status status="PASS" start="2026-03-31T13:36:31.634469" elapsed="0.001356"/>
+</kw>
+<msg time="2026-03-31T13:36:31.639774" level="INFO">${data} = [{'ho': 'Lê', 'ten': 'Thơm', 'email': 'thomle123@gmail.com', 'matkhau': 'Thomhihi', 'expected': 'TÀI KHOẢN CỦA BẠN', 'type': 'register_success'}, {'ho': 'Le', 'ten': 'Thom', 'email': 'thomhihi2004', '...</msg>
+<var>${data}</var>
+<arg>'${DATA_TYPE}'=='json'</arg>
+<arg>Load Json Data</arg>
+<arg>data/Data_Register.json</arg>
+<arg>ELSE</arg>
+<arg>Load Excel Data</arg>
+<arg>data/Data_Register.xlsx</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-03-31T13:36:31.633045" elapsed="0.006916"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-03-31T13:36:31.645005" level="INFO">${ho} = Lê</msg>
+<var>${ho}</var>
+<arg>${item['ho']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-03-31T13:36:31.641814" elapsed="0.003300"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-03-31T13:36:31.647238" level="INFO">${ten} = Thơm</msg>
+<var>${ten}</var>
+<arg>${item['ten']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-03-31T13:36:31.645472" elapsed="0.001855"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-03-31T13:36:31.649069" level="INFO">${email} = thomle123@gmail.com</msg>
+<var>${email}</var>
+<arg>${item['email']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-03-31T13:36:31.647615" elapsed="0.001553"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-03-31T13:36:31.650950" level="INFO">${matkhau} = Thomhihi</msg>
+<var>${matkhau}</var>
+<arg>${item['matkhau']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-03-31T13:36:31.649489" elapsed="0.001567"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-03-31T13:36:31.653524" level="INFO">${type} = register_success</msg>
+<var>${type}</var>
+<arg>${item['type']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-03-31T13:36:31.651471" elapsed="0.002160"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-03-31T13:36:31.654858" level="INFO">===== register_success =====</msg>
+<arg>===== ${type} =====</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-03-31T13:36:31.654124" elapsed="0.000864"/>
+</kw>
+<if>
+<branch type="IF" condition="'${type}' == 'register_success'">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-03-31T13:36:31.656145" level="INFO">${random} = oQUYW</msg>
+<var>${random}</var>
+<arg>5</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-03-31T13:36:31.655751" elapsed="0.000437"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-03-31T13:36:31.656757" level="INFO">${email} = testoQUYW@gmail.com</msg>
+<var>${email}</var>
+<arg>test${random}@gmail.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-03-31T13:36:31.656349" elapsed="0.000479"/>
+</kw>
+<status status="PASS" start="2026-03-31T13:36:31.655286" elapsed="0.001679"/>
+</branch>
+<status status="PASS" start="2026-03-31T13:36:31.655214" elapsed="0.002049"/>
+</if>
+<kw name="Register With Data">
+<msg time="2026-03-31T13:36:31.665143" level="FAIL">No keyword with name 'Register With Data' found.</msg>
+<arg>${ho}</arg>
+<arg>${ten}</arg>
+<arg>${email}</arg>
+<arg>${matkhau}</arg>
+<status status="FAIL" start="2026-03-31T13:36:31.665016" elapsed="0.000228">No keyword with name 'Register With Data' found.</status>
+</kw>
+<if>
+<branch type="IF" condition="'${type}' == 'lastname_empty'">
+<kw name="Get Browser Validation Message" owner="register_page">
+<var>${msg}</var>
+<arg>${INPUT_LASTNAME}</arg>
+<status status="NOT RUN" start="2026-03-31T13:36:31.665820" elapsed="0.000078"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${msg}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="NOT RUN" start="2026-03-31T13:36:31.666152" elapsed="0.000063"/>
+</kw>
+<status status="NOT RUN" start="2026-03-31T13:36:31.665482" elapsed="0.000835"/>
+</branch>
+<branch type="ELSE IF" condition="'${type}' == 'email_empty'">
+<kw name="Get Browser Validation Message" owner="register_page">
+<var>${msg}</var>
+<arg>${INPUT_EMAIL}</arg>
+<status status="NOT RUN" start="2026-03-31T13:36:31.666740" elapsed="0.000069"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${msg}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="NOT RUN" start="2026-03-31T13:36:31.667028" elapsed="0.000057"/>
+</kw>
+<status status="NOT RUN" start="2026-03-31T13:36:31.666422" elapsed="0.000749"/>
+</branch>
+<branch type="ELSE IF" condition="'${type}' == 'email_invalid'">
+<kw name="Get Browser Validation Message" owner="register_page">
+<var>${msg}</var>
+<arg>${INPUT_EMAIL}</arg>
+<status status="NOT RUN" start="2026-03-31T13:36:31.667537" elapsed="0.000073"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${msg}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="NOT RUN" start="2026-03-31T13:36:31.667852" elapsed="0.000072"/>
+</kw>
+<status status="NOT RUN" start="2026-03-31T13:36:31.667259" elapsed="0.000783"/>
+</branch>
+<branch type="ELSE IF" condition="'${type}' == 'password_empty'">
+<kw name="Get Browser Validation Message" owner="register_page">
+<var>${msg}</var>
+<arg>${INPUT_PASSWORD}</arg>
+<status status="NOT RUN" start="2026-03-31T13:36:31.668535" elapsed="0.000075"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${msg}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="NOT RUN" start="2026-03-31T13:36:31.669715" elapsed="0.000105"/>
+</kw>
+<status status="NOT RUN" start="2026-03-31T13:36:31.668186" elapsed="0.001746"/>
+</branch>
+<branch type="ELSE IF" condition="'${type}' == 'password_short'">
+<kw name="Get Result Message" owner="register_page">
+<var>${msg}</var>
+<status status="NOT RUN" start="2026-03-31T13:36:31.670402" elapsed="0.000081"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${msg}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="NOT RUN" start="2026-03-31T13:36:31.670715" elapsed="0.000058"/>
+</kw>
+<status status="NOT RUN" start="2026-03-31T13:36:31.670031" elapsed="0.000829"/>
+</branch>
+<branch type="ELSE IF" condition="'${type}' == 'register_success'">
+<kw name="Get Page Text" owner="register_page">
+<var>${text}</var>
+<status status="NOT RUN" start="2026-03-31T13:36:31.671251" elapsed="0.000072"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${text}</arg>
+<arg>tài khoản</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2026-03-31T13:36:31.671838" elapsed="0.000094"/>
+</kw>
+<status status="NOT RUN" start="2026-03-31T13:36:31.670943" elapsed="0.001112"/>
+</branch>
+<status status="NOT RUN" start="2026-03-31T13:36:31.665441" elapsed="0.006707"/>
+</if>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="NOT RUN" start="2026-03-31T13:36:31.672374" elapsed="0.000068"/>
+</kw>
+<var name="${item}">{'ho': 'Lê', 'ten': 'Thơm', 'email': 'thomle123@gmail.com', 'matkhau': 'Thomhihi', 'expected': 'TÀI KHOẢN CỦA BẠN', 'type': 'register_success'}</var>
+<status status="FAIL" start="2026-03-31T13:36:31.641535" elapsed="0.031065">No keyword with name 'Register With Data' found.</status>
+</iter>
+<var>${item}</var>
+<value>@{data}</value>
+<status status="FAIL" start="2026-03-31T13:36:31.640453" elapsed="0.032342">No keyword with name 'Register With Data' found.</status>
+</for>
+<kw name="Run Keyword If Test Failed" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-03-31T13:36:32.077988" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-03-31T13:36:31.674328" elapsed="0.403872"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-03-31T13:36:31.673575" elapsed="0.404794"/>
+</kw>
+<status status="FAIL" start="2026-03-31T13:36:31.630809" elapsed="0.449321">No keyword with name 'Register With Data' found.</status>
+</test>
+<kw name="Close Browser" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-03-31T13:36:32.082683" elapsed="3.241508"/>
+</kw>
+<status status="PASS" start="2026-03-31T13:36:32.081892" elapsed="3.242850"/>
+</kw>
+<status status="FAIL" start="2026-03-31T13:36:25.572664" elapsed="9.752478"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Register" id="s1" pass="0" fail="1" skip="0">Test Register</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-03-31T13:36:26.418881" level="ERROR">Error in file 'C:\LeThiThom\DATN\tests\test_register.robot' on line 5: Resource file '..\resources\register_keyword.resource' does not exist.</msg>
+</errors>
+</robot>

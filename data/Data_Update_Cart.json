@@ -1,0 +1,17 @@
+[
+  {
+    "input": "0",
+    "type": "empty_cart",
+    "expected": "Giỏ hàng trống"
+  },
+  {
+    "input": "1",
+    "type": "one_product",
+    "expected": "1 sản phẩm"
+  },
+  {
+    "input": "100000",
+    "type": "large_quantity",
+    "expected": "100000 sản phẩm"
+  }
+]

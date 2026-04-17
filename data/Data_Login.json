@@ -1,0 +1,38 @@
+[
+  {
+    "email": "",
+    "password": "",
+    "type": "empty_all",
+    "expected": "Please fill out this field"
+  },
+  {
+    "email": "",
+    "password": "ddd28",
+    "type": "email_empty",
+    "expected": "Please fill out this field"
+  },
+  {
+    "email": "lethithom2004",
+    "password": "dgc127",
+    "type": "email_invalid",
+    "expected": "Please include an '@'"
+  },
+  {
+    "email": "lethithom@gmail.com",
+    "password": "",
+    "type": "password_empty",
+    "expected": "Please fill out this field"
+  },
+  {
+    "email": "lethithom@gmail.com",
+    "password": "thomne",
+    "type": "login_fail",
+    "expected": "Thông tin đăng nhập không hợp lệ"
+  },
+  {
+    "email": "thom123@gmail.com",
+    "password": "Thom12;hi",
+    "type": "login_success",
+    "expected": "success"
+  }
+]
