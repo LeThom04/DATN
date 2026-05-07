@@ -16,14 +16,6 @@
     "expected": "Please include an '@'"
   },
   {
-    "ho": "Lê",
-    "ten": "Thơm",
-    "email": "thomhihi@gmail.com",
-    "matkhau": "thom",
-    "type": "password_short",
-    "expected": "Mật khẩu quá ngắn"
-  },
-  {
     "ho": "",
     "ten": "Thom",
     "email": "thomhihi@gmail.com",

@@ -18,7 +18,7 @@
     "expected": "Please include an '@'"
   },
   {
-    "email": "lethithom@gmail.com",
+    "email": "lethithom2004@gmail.com",
     "password": "",
     "type": "password_empty",
     "expected": "Please fill out this field"
@@ -33,6 +33,6 @@
     "email": "thom123@gmail.com",
     "password": "Thom12;hi",
     "type": "login_success",
-    "expected": "success"
+    "expected": "TÀI KHOẢN CỦA BẠN"
   }
 ]

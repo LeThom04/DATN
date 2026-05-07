@@ -18,7 +18,6 @@ def load_excel_data(filepath):
 
     return data
 
-
 def load_json_data(filepath):
     with open(filepath, "r", encoding="utf-8") as file:
         return json.load(file)
