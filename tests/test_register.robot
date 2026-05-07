@@ -1,4 +1,6 @@
 *** Settings ***
+Library    ../utils/data_reader.py
+
 Resource    ../resources/common.resource
 Resource    ../resources/register_keywords.resource
 
@@ -11,7 +13,8 @@ ${DATA_TYPE}    json
 *** Test Cases ***
 Register Data Driven
 
-    ${data}=    Run Keyword If    '${DATA_TYPE}'=='json'
+    ${data}=    Run Keyword If
+    ...    '${DATA_TYPE}'=='json'
     ...    Load Json Data    data/Data_Register.json
     ...    ELSE
     ...    Load Excel Data    data/Data_Register.xlsx
@@ -20,16 +23,17 @@ Register Data Driven
 
         Log    ===== TEST: ${item['type']} =====
 
+        Go To    https://bepxinhvn.vn/account/register
+
         Register With Data
         ...    ${item['ho']}
         ...    ${item['ten']}
         ...    ${item['email']}
         ...    ${item['matkhau']}
+        ...    ${item['type']}
 
         Validate Register Result
         ...    ${item['type']}
         ...    ${item['expected']}
-
-        Reload Page
 
     END

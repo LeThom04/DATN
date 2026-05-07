@@ -1,832 +1,712 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.13.7 on win32)" generated="2026-05-07T14:57:52.867995" rpa="false" schemaversion="5">
-<suite id="s1" name="Test Login" source="C:\LeThiThom\DATN\tests\test_login.robot">
+<robot generator="Robot 7.4.2 (Python 3.13.7 on win32)" generated="2026-05-07T22:47:47.329011" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Update Cart" source="C:\LeThiThom\DATN\tests\test_update_cart.robot">
 <kw name="Open Browser To Website" owner="common" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:57:54.048577" level="INFO">Opening browser 'Chrome' to base url 'https://bepxinhvn.vn/'.</msg>
+<msg time="2026-05-07T22:47:48.124215" level="INFO">Opening browser 'Chrome' to base url 'https://bepxinhvn.vn/'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-05-07T14:57:54.048243" elapsed="6.341501"/>
+<status status="PASS" start="2026-05-07T22:47:48.123775" elapsed="3.436578"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-05-07T14:58:00.390761" elapsed="1.431238"/>
+<status status="PASS" start="2026-05-07T22:47:51.560961" elapsed="0.084717"/>
 </kw>
-<status status="PASS" start="2026-05-07T14:57:54.047147" elapsed="7.776287"/>
+<status status="PASS" start="2026-05-07T22:47:48.122879" elapsed="3.523587"/>
 </kw>
-<test id="s1-t1" name="Login Data Driven (Type)" line="14">
+<test id="s1-t1" name="Update Cart Data Driven (Type)" line="14">
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Load Json Data" owner="data_reader">
-<arg>data/Data_Login.json</arg>
-<status status="PASS" start="2026-05-07T14:58:01.826094" elapsed="0.000910"/>
+<arg>data/Data_Update_Cart.json</arg>
+<status status="PASS" start="2026-05-07T22:47:51.650415" elapsed="0.002587"/>
 </kw>
-<msg time="2026-05-07T14:58:01.828243" level="INFO">${data} = [{'email': '', 'password': '', 'type': 'empty_all', 'expected': 'Please fill out this field'}, {'email': '', 'password': 'ddd28', 'type': 'email_empty', 'expected': 'Please fill out this field'}, {'em...</msg>
+<msg time="2026-05-07T22:47:51.653478" level="INFO">${data} = [{'input': '0', 'type': 'empty_cart', 'expected': 'Giỏ hàng trống'}, {'input': '1', 'type': 'one_product', 'expected': '1 sản phẩm'}, {'input': '100000', 'type': 'large_quantity', 'expected': '100000 ...</msg>
 <var>${data}</var>
 <arg>'${DATA_TYPE}'=='json'</arg>
 <arg>Load Json Data</arg>
-<arg>data/Data_Login.json</arg>
+<arg>data/Data_Update_Cart.json</arg>
 <arg>ELSE</arg>
 <arg>Load Excel Data</arg>
-<arg>data/Data_Login.xlsx</arg>
+<arg>data/Data_Update_Cart.xlsx</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2026-05-07T14:58:01.824767" elapsed="0.003577"/>
+<status status="PASS" start="2026-05-07T22:47:51.648640" elapsed="0.005065"/>
 </kw>
 <for flavor="IN">
 <iter>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:01.831045" level="INFO">${email} = </msg>
-<var>${email}</var>
-<arg>${item['email']}</arg>
+<msg time="2026-05-07T22:47:51.662568" level="INFO">${quantity} = 0</msg>
+<var>${quantity}</var>
+<arg>${item['input']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:01.829505" elapsed="0.001631"/>
+<status status="PASS" start="2026-05-07T22:47:51.660375" elapsed="0.002349"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:01.834261" level="INFO">${password} = </msg>
-<var>${password}</var>
-<arg>${item['password']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:01.831461" elapsed="0.002988"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:01.836102" level="INFO">${type} = empty_all</msg>
+<msg time="2026-05-07T22:47:51.664783" level="INFO">${type} = empty_cart</msg>
 <var>${type}</var>
 <arg>${item['type']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:01.834754" elapsed="0.001437"/>
+<status status="PASS" start="2026-05-07T22:47:51.663245" elapsed="0.001646"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-05-07T14:58:01.837060" level="INFO">=====  =====</msg>
-<arg>===== ${email} =====</arg>
+<msg time="2026-05-07T22:47:51.665980" level="INFO">===== Quantity: 0 =====</msg>
+<arg>===== Quantity: ${quantity} =====</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-05-07T14:58:01.836475" elapsed="0.000691"/>
+<status status="PASS" start="2026-05-07T22:47:51.665237" elapsed="0.000892"/>
 </kw>
-<kw name="Login With Data" owner="login_keywords">
-<kw name="Click Login Link" owner="login_page">
+<kw name="Update Cart With Data" owner="update_cart_keywords">
+<kw name="Open Product Page" owner="update_cart_page">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-07T22:47:51.668296" level="INFO">Opening url 'https://bepxinhvn.vn/products/10-hop-mica-nhua-trong-quai-xach-16x9x9cm'</msg>
+<arg>${PRODUCT_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-07T22:47:51.668020" elapsed="1.100121"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ADD_TO_CART}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-07T22:47:52.768810" elapsed="0.064193"/>
+</kw>
+<status status="PASS" start="2026-05-07T22:47:51.667413" elapsed="1.165808"/>
+</kw>
+<kw name="Add To Cart" owner="update_cart_page">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:01.839285" level="INFO">Clicking element 'xpath=//a[contains(text(),'Đăng nhập')]'.</msg>
-<arg>${A_LOGIN}</arg>
+<msg time="2026-05-07T22:47:52.834718" level="INFO">Clicking element 'id=add-to-cart'.</msg>
+<arg>${ADD_TO_CART}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:01.838652" elapsed="1.363282"/>
+<status status="PASS" start="2026-05-07T22:47:52.834364" elapsed="0.315982"/>
 </kw>
-<status status="PASS" start="2026-05-07T14:58:01.838230" elapsed="1.364026"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-07T22:47:55.193682" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-07T22:47:53.151175" elapsed="2.045510"/>
 </kw>
-<kw name="Enter Email" owner="login_page">
+<status status="PASS" start="2026-05-07T22:47:52.833858" elapsed="2.365278"/>
+</kw>
+<kw name="Update Quantity" owner="update_cart_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${QUANTITY_INPUT}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-07T22:47:55.205916" elapsed="0.130245"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${QUANTITY_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-07T22:47:55.336488" elapsed="0.110625"/>
+</kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:03.204368" level="INFO">Typing text '' into text field 'id=customer_email'.</msg>
-<arg>${USERNAME_INPUT}</arg>
-<arg>${email}</arg>
+<msg time="2026-05-07T22:47:55.448104" level="INFO">Typing text '0' into text field 'id=quantity1'.</msg>
+<arg>${QUANTITY_INPUT}</arg>
+<arg>${quantity}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:03.203650" elapsed="0.131275"/>
+<status status="PASS" start="2026-05-07T22:47:55.447488" elapsed="0.218312"/>
 </kw>
-<arg>${email}</arg>
-<status status="PASS" start="2026-05-07T14:58:03.202764" elapsed="0.132411"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-07T22:47:56.667809" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-07T22:47:55.666296" elapsed="1.001670"/>
 </kw>
-<kw name="Enter Password" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:03.337197" level="INFO">Typing text '' into text field 'id=customer_password'.</msg>
-<arg>${PASSWORD_INPUT}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:03.336530" elapsed="0.122107"/>
+<arg>${quantity}</arg>
+<status status="PASS" start="2026-05-07T22:47:55.203411" elapsed="1.464707"/>
 </kw>
-<arg>${password}</arg>
-<status status="PASS" start="2026-05-07T14:58:03.335627" elapsed="0.123138"/>
+<arg>${quantity}</arg>
+<status status="PASS" start="2026-05-07T22:47:51.666593" elapsed="5.001643"/>
 </kw>
-<kw name="Click Login Button" owner="login_page">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:03.459630" level="INFO">Clicking button 'xpath=//input[@value='Đăng nhập']'.</msg>
-<arg>${LOGIN_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:03.459323" elapsed="0.217575"/>
+<kw name="Click Update Button" owner="update_cart_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${UPDATE_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-07T22:47:56.669025" elapsed="0.024525"/>
 </kw>
-<status status="PASS" start="2026-05-07T14:58:03.458990" elapsed="0.218176"/>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-07T22:47:56.694144" level="INFO">Executing JavaScript:
+document.getElementById('update-cart-modal').click()
+Without any arguments.</msg>
+<arg>document.getElementById('update-cart-modal').click()</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-07T22:47:56.693748" elapsed="0.011272"/>
 </kw>
-<arg>${email}</arg>
-<arg>${password}</arg>
-<status status="PASS" start="2026-05-07T14:58:01.837540" elapsed="1.839740"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-07T22:47:58.706620" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-07T22:47:56.705314" elapsed="2.001690"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Alert Should Be Present" owner="SeleniumLibrary">
+<msg time="2026-05-07T22:47:58.709640" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<msg time="2026-05-07T22:48:03.945239" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-99.png"&gt;&lt;img src="selenium-screenshot-99.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-05-07T22:48:03.945502" level="FAIL">Alert not found in 5 seconds.</msg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<status status="FAIL" start="2026-05-07T22:47:58.709179" elapsed="5.243446">Alert not found in 5 seconds.</status>
+</kw>
+<msg time="2026-05-07T22:48:03.952936" level="INFO">${alert_status} = False</msg>
+<var>${alert_status}</var>
+<arg>Alert Should Be Present</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-07T22:47:58.707732" elapsed="5.245296"/>
 </kw>
 <if>
-<branch type="IF" condition="'${type}' == 'email_empty'">
-<kw name="Get Browser Validation Message" owner="login_page">
-<var>${msg}</var>
-<arg>${USERNAME_INPUT}</arg>
-<status status="NOT RUN" start="2026-05-07T14:58:03.678229" elapsed="0.000072"/>
+<branch type="IF" condition="${alert_status}">
+<kw name="Get Alert Message">
+<var>${alert_text}</var>
+<status status="NOT RUN" start="2026-05-07T22:48:03.953946" elapsed="0.000052"/>
 </kw>
-<kw name="Should Not Be Empty" owner="BuiltIn">
-<arg>${msg}</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:03.678548" elapsed="0.000058"/>
+<kw name="Log" owner="BuiltIn">
+<arg>ALERT: ${alert_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-05-07T22:48:03.954155" elapsed="0.000235"/>
 </kw>
-<status status="NOT RUN" start="2026-05-07T14:58:03.677561" elapsed="0.001136"/>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<arg>ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="NOT RUN" start="2026-05-07T22:48:03.954570" elapsed="0.000043"/>
+</kw>
+<return>
+<value>${alert_text}</value>
+<status status="NOT RUN" start="2026-05-07T22:48:03.954698" elapsed="0.000050"/>
+</return>
+<status status="NOT RUN" start="2026-05-07T22:48:03.953228" elapsed="0.001588"/>
 </branch>
-<branch type="ELSE IF" condition="'${type}' == 'email_invalid'">
-<kw name="Get Browser Validation Message" owner="login_page">
-<var>${msg}</var>
-<arg>${USERNAME_INPUT}</arg>
-<status status="NOT RUN" start="2026-05-07T14:58:03.679302" elapsed="0.000071"/>
-</kw>
-<kw name="Should Not Be Empty" owner="BuiltIn">
-<arg>${msg}</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:03.679594" elapsed="0.000057"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:03.678799" elapsed="0.000941"/>
-</branch>
-<branch type="ELSE IF" condition="'${type}' == 'login_fail'">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<arg>${ERROR_MESSAGE}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:03.680214" elapsed="0.000055"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:03.679857" elapsed="0.000501"/>
-</branch>
-<branch type="ELSE IF" condition="'${type}' == 'login_success'">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<arg>${SUCCESS_MESSAGE}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:03.680766" elapsed="0.000054"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:03.680452" elapsed="0.000476"/>
-</branch>
-<status status="PASS" start="2026-05-07T14:58:03.677484" elapsed="0.003544"/>
+<status status="PASS" start="2026-05-07T22:48:03.953185" elapsed="0.001695"/>
 </if>
-<kw name="Reload Page" owner="SeleniumLibrary">
-<doc>Simulates user reloading page.</doc>
-<status status="PASS" start="2026-05-07T14:58:03.681220" elapsed="0.534254"/>
+<return>
+<value>""</value>
+<status status="PASS" start="2026-05-07T22:48:03.954940" elapsed="0.000095"/>
+</return>
+<msg time="2026-05-07T22:48:03.955274" level="INFO">${alert_msg} = ""</msg>
+<var>${alert_msg}</var>
+<status status="PASS" start="2026-05-07T22:47:56.668634" elapsed="7.286677"/>
 </kw>
-<var name="${item}">{'email': '', 'password': '', 'type': 'empty_all', 'expected': 'Please fill out this field'}</var>
-<status status="PASS" start="2026-05-07T14:58:01.829264" elapsed="2.386376"/>
-</iter>
-<iter>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:04.218461" level="INFO">${email} = </msg>
-<var>${email}</var>
-<arg>${item['email']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:04.216681" elapsed="0.001877"/>
+<kw name="Get Result Message" owner="update_cart_page">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Get Text" owner="SeleniumLibrary">
+<arg>${RESULT_MESSAGE}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-07T22:48:03.956250" elapsed="0.033590"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:04.221149" level="INFO">${password} = ddd28</msg>
-<var>${password}</var>
-<arg>${item['password']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:04.218935" elapsed="0.002332"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:04.223664" level="INFO">${type} = email_empty</msg>
-<var>${type}</var>
-<arg>${item['type']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:04.221661" elapsed="0.002101"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2026-05-07T14:58:04.224972" level="INFO">=====  =====</msg>
-<arg>===== ${email} =====</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-05-07T14:58:04.224143" elapsed="0.000990"/>
-</kw>
-<kw name="Login With Data" owner="login_keywords">
-<kw name="Click Login Link" owner="login_page">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:04.228174" level="INFO">Clicking element 'xpath=//a[contains(text(),'Đăng nhập')]'.</msg>
-<arg>${A_LOGIN}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:04.227671" elapsed="1.020236"/>
-</kw>
-<status status="PASS" start="2026-05-07T14:58:04.227099" elapsed="1.021543"/>
-</kw>
-<kw name="Enter Email" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:05.251035" level="INFO">Typing text '' into text field 'id=customer_email'.</msg>
-<arg>${USERNAME_INPUT}</arg>
-<arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:05.250294" elapsed="0.179287"/>
-</kw>
-<arg>${email}</arg>
-<status status="PASS" start="2026-05-07T14:58:05.249079" elapsed="0.180802"/>
-</kw>
-<kw name="Enter Password" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:05.437738" level="INFO">Typing text 'ddd28' into text field 'id=customer_password'.</msg>
-<arg>${PASSWORD_INPUT}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:05.431187" elapsed="0.174817"/>
-</kw>
-<arg>${password}</arg>
-<status status="PASS" start="2026-05-07T14:58:05.430367" elapsed="0.175901"/>
-</kw>
-<kw name="Click Login Button" owner="login_page">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:05.607798" level="INFO">Clicking button 'xpath=//input[@value='Đăng nhập']'.</msg>
-<arg>${LOGIN_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:05.607311" elapsed="0.119293"/>
-</kw>
-<status status="PASS" start="2026-05-07T14:58:05.606718" elapsed="0.121363"/>
-</kw>
-<arg>${email}</arg>
-<arg>${password}</arg>
-<status status="PASS" start="2026-05-07T14:58:04.226115" elapsed="1.502307"/>
+<msg time="2026-05-07T22:48:03.990032" level="INFO">${status} = PASS</msg>
+<msg time="2026-05-07T22:48:03.990093" level="INFO">${msg} = GIỎ HÀNG CỦA BẠN ĐANG TRỐNG. MỜI BẠN TIẾP TỤC MUA HÀNG.</msg>
+<var>${status}</var>
+<var>${msg}</var>
+<arg>Get Text</arg>
+<arg>${RESULT_MESSAGE}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-05-07T22:48:03.955871" elapsed="0.034258"/>
 </kw>
 <if>
-<branch type="IF" condition="'${type}' == 'email_empty'">
-<kw name="Get Browser Validation Message" owner="login_page">
-<kw name="Get Element Attribute" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:05.766440" level="INFO">${msg} = Please fill out this field.</msg>
+<branch type="IF" condition="'${status}' == 'FAIL'">
+<return>
+<value>""</value>
+<status status="NOT RUN" start="2026-05-07T22:48:03.990441" elapsed="0.000032"/>
+</return>
+<status status="NOT RUN" start="2026-05-07T22:48:03.990259" elapsed="0.000269"/>
+</branch>
+<status status="PASS" start="2026-05-07T22:48:03.990228" elapsed="0.000345"/>
+</if>
+<kw name="Convert To Lower Case" owner="String">
+<msg time="2026-05-07T22:48:03.990935" level="INFO">${msg} = giỏ hàng của bạn đang trống. mời bạn tiếp tục mua hàng.</msg>
 <var>${msg}</var>
-<arg>${locator}</arg>
-<arg>validationMessage</arg>
-<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:05.729880" elapsed="0.036795"/>
+<arg>${msg}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="PASS" start="2026-05-07T22:48:03.990703" elapsed="0.000269"/>
 </kw>
 <return>
 <value>${msg}</value>
-<status status="PASS" start="2026-05-07T14:58:05.766888" elapsed="0.000157"/>
+<status status="PASS" start="2026-05-07T22:48:03.991043" elapsed="0.000049"/>
 </return>
-<msg time="2026-05-07T14:58:05.767419" level="INFO">${msg} = Please fill out this field.</msg>
+<msg time="2026-05-07T22:48:03.991250" level="INFO">${msg} = giỏ hàng của bạn đang trống. mời bạn tiếp tục mua hàng.</msg>
 <var>${msg}</var>
-<arg>${USERNAME_INPUT}</arg>
-<status status="PASS" start="2026-05-07T14:58:05.729253" elapsed="0.038242"/>
+<status status="PASS" start="2026-05-07T22:48:03.955570" elapsed="0.035718"/>
 </kw>
-<kw name="Should Not Be Empty" owner="BuiltIn">
-<msg time="2026-05-07T14:58:05.769144" level="INFO">Length is 27.</msg>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2026-05-07T22:48:03.991868" level="INFO">${final_msg} = ""</msg>
+<var>${final_msg}</var>
+<arg>'${alert_msg}'!=''</arg>
+<arg>${alert_msg}</arg>
 <arg>${msg}</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<status status="PASS" start="2026-05-07T14:58:05.767797" elapsed="0.001503"/>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2026-05-07T22:48:03.991426" elapsed="0.000480"/>
 </kw>
-<status status="PASS" start="2026-05-07T14:58:05.728658" elapsed="0.040783"/>
-</branch>
-<branch type="ELSE IF" condition="'${type}' == 'email_invalid'">
-<kw name="Get Browser Validation Message" owner="login_page">
-<var>${msg}</var>
-<arg>${USERNAME_INPUT}</arg>
-<status status="NOT RUN" start="2026-05-07T14:58:05.770213" elapsed="0.000153"/>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-05-07T22:48:03.992329" level="INFO">Final Message: ""</msg>
+<arg>Final Message: ${final_msg}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-05-07T22:48:03.992049" elapsed="0.000338"/>
 </kw>
+<if>
+<branch type="IF" condition="'${type}' == 'update'">
 <kw name="Should Not Be Empty" owner="BuiltIn">
-<arg>${msg}</arg>
+<arg>${final_msg}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:05.770799" elapsed="0.000594"/>
+<status status="NOT RUN" start="2026-05-07T22:48:03.992689" elapsed="0.000038"/>
 </kw>
-<status status="NOT RUN" start="2026-05-07T14:58:05.769549" elapsed="0.002262"/>
+<status status="NOT RUN" start="2026-05-07T22:48:03.992486" elapsed="0.000294"/>
 </branch>
-<branch type="ELSE IF" condition="'${type}' == 'login_fail'">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<arg>${ERROR_MESSAGE}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:05.772492" elapsed="0.000077"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:05.772094" elapsed="0.000600"/>
-</branch>
-<branch type="ELSE IF" condition="'${type}' == 'login_success'">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<arg>${SUCCESS_MESSAGE}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:05.773071" elapsed="0.000078"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:05.772810" elapsed="0.000448"/>
-</branch>
-<status status="PASS" start="2026-05-07T14:58:05.728607" elapsed="0.044743"/>
+<status status="PASS" start="2026-05-07T22:48:03.992464" elapsed="0.000363"/>
 </if>
-<kw name="Reload Page" owner="SeleniumLibrary">
-<doc>Simulates user reloading page.</doc>
-<status status="PASS" start="2026-05-07T14:58:05.773560" elapsed="0.352115"/>
-</kw>
-<var name="${item}">{'email': '', 'password': 'ddd28', 'type': 'email_empty', 'expected': 'Please fill out this field'}</var>
-<status status="PASS" start="2026-05-07T14:58:04.216333" elapsed="1.909450"/>
+<var name="${item}">{'input': '0', 'type': 'empty_cart', 'expected': 'Giỏ hàng trống'}</var>
+<status status="PASS" start="2026-05-07T22:47:51.659875" elapsed="12.332983"/>
 </iter>
 <iter>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:06.127140" level="INFO">${email} = lethithom2004</msg>
-<var>${email}</var>
-<arg>${item['email']}</arg>
+<msg time="2026-05-07T22:48:03.993851" level="INFO">${quantity} = 1</msg>
+<var>${quantity}</var>
+<arg>${item['input']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:06.126220" elapsed="0.000966"/>
+<status status="PASS" start="2026-05-07T22:48:03.993189" elapsed="0.000701"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:06.128023" level="INFO">${password} = dgc127</msg>
-<var>${password}</var>
-<arg>${item['password']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:06.127346" elapsed="0.000716"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:06.128948" level="INFO">${type} = email_invalid</msg>
+<msg time="2026-05-07T22:48:03.994666" level="INFO">${type} = one_product</msg>
 <var>${type}</var>
 <arg>${item['type']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:06.128202" elapsed="0.000786"/>
+<status status="PASS" start="2026-05-07T22:48:03.994026" elapsed="0.000678"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-05-07T14:58:06.129439" level="INFO">===== lethithom2004 =====</msg>
-<arg>===== ${email} =====</arg>
+<msg time="2026-05-07T22:48:03.995150" level="INFO">===== Quantity: 1 =====</msg>
+<arg>===== Quantity: ${quantity} =====</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-05-07T14:58:06.129131" elapsed="0.000376"/>
+<status status="PASS" start="2026-05-07T22:48:03.994841" elapsed="0.000369"/>
 </kw>
-<kw name="Login With Data" owner="login_keywords">
-<kw name="Click Login Link" owner="login_page">
+<kw name="Update Cart With Data" owner="update_cart_keywords">
+<kw name="Open Product Page" owner="update_cart_page">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-07T22:48:03.996118" level="INFO">Opening url 'https://bepxinhvn.vn/products/10-hop-mica-nhua-trong-quai-xach-16x9x9cm'</msg>
+<arg>${PRODUCT_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-07T22:48:03.995973" elapsed="2.006290"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ADD_TO_CART}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-07T22:48:06.002563" elapsed="0.063952"/>
+</kw>
+<status status="PASS" start="2026-05-07T22:48:03.995738" elapsed="2.070982"/>
+</kw>
+<kw name="Add To Cart" owner="update_cart_page">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:06.130632" level="INFO">Clicking element 'xpath=//a[contains(text(),'Đăng nhập')]'.</msg>
-<arg>${A_LOGIN}</arg>
+<msg time="2026-05-07T22:48:06.068231" level="INFO">Clicking element 'id=add-to-cart'.</msg>
+<arg>${ADD_TO_CART}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:06.130404" elapsed="0.722809"/>
+<status status="PASS" start="2026-05-07T22:48:06.067801" elapsed="1.167505"/>
 </kw>
-<status status="PASS" start="2026-05-07T14:58:06.130138" elapsed="0.723225"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-07T22:48:09.236464" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-07T22:48:07.235621" elapsed="2.000996"/>
 </kw>
-<kw name="Enter Email" owner="login_page">
+<status status="PASS" start="2026-05-07T22:48:06.067094" elapsed="3.169684"/>
+</kw>
+<kw name="Update Quantity" owner="update_cart_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${QUANTITY_INPUT}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-07T22:48:09.237560" elapsed="0.021368"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${QUANTITY_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-07T22:48:09.259136" elapsed="0.051426"/>
+</kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:06.854458" level="INFO">Typing text 'lethithom2004' into text field 'id=customer_email'.</msg>
-<arg>${USERNAME_INPUT}</arg>
-<arg>${email}</arg>
+<msg time="2026-05-07T22:48:09.311736" level="INFO">Typing text '1' into text field 'id=quantity1'.</msg>
+<arg>${QUANTITY_INPUT}</arg>
+<arg>${quantity}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:06.853996" elapsed="0.173723"/>
+<status status="PASS" start="2026-05-07T22:48:09.311043" elapsed="0.111206"/>
 </kw>
-<arg>${email}</arg>
-<status status="PASS" start="2026-05-07T14:58:06.853588" elapsed="0.174324"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-07T22:48:10.424247" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-07T22:48:09.422591" elapsed="1.001836"/>
 </kw>
-<kw name="Enter Password" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:07.029126" level="INFO">Typing text 'dgc127' into text field 'id=customer_password'.</msg>
-<arg>${PASSWORD_INPUT}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:07.028744" elapsed="0.108533"/>
+<arg>${quantity}</arg>
+<status status="PASS" start="2026-05-07T22:48:09.237050" elapsed="1.187506"/>
 </kw>
-<arg>${password}</arg>
-<status status="PASS" start="2026-05-07T14:58:07.028202" elapsed="0.109259"/>
+<arg>${quantity}</arg>
+<status status="PASS" start="2026-05-07T22:48:03.995394" elapsed="6.429246"/>
 </kw>
-<kw name="Click Login Button" owner="login_page">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:07.138241" level="INFO">Clicking button 'xpath=//input[@value='Đăng nhập']'.</msg>
-<arg>${LOGIN_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:07.138005" elapsed="0.115596"/>
+<kw name="Click Update Button" owner="update_cart_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${UPDATE_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-07T22:48:10.425501" elapsed="0.022788"/>
 </kw>
-<status status="PASS" start="2026-05-07T14:58:07.137698" elapsed="0.116137"/>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-07T22:48:10.449262" level="INFO">Executing JavaScript:
+document.getElementById('update-cart-modal').click()
+Without any arguments.</msg>
+<arg>document.getElementById('update-cart-modal').click()</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-07T22:48:10.448604" elapsed="0.013529"/>
 </kw>
-<arg>${email}</arg>
-<arg>${password}</arg>
-<status status="PASS" start="2026-05-07T14:58:06.129720" elapsed="1.124653"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-07T22:48:12.463724" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-07T22:48:10.462617" elapsed="2.001234"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Alert Should Be Present" owner="SeleniumLibrary">
+<msg time="2026-05-07T22:48:12.464589" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<msg time="2026-05-07T22:48:17.714730" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-100.png"&gt;&lt;img src="selenium-screenshot-100.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-05-07T22:48:17.714903" level="FAIL">Alert not found in 5 seconds.</msg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<status status="FAIL" start="2026-05-07T22:48:12.464456" elapsed="5.251989">Alert not found in 5 seconds.</status>
+</kw>
+<msg time="2026-05-07T22:48:17.716604" level="INFO">${alert_status} = False</msg>
+<var>${alert_status}</var>
+<arg>Alert Should Be Present</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-07T22:48:12.464058" elapsed="5.252581"/>
 </kw>
 <if>
-<branch type="IF" condition="'${type}' == 'email_empty'">
-<kw name="Get Browser Validation Message" owner="login_page">
-<var>${msg}</var>
-<arg>${USERNAME_INPUT}</arg>
-<status status="NOT RUN" start="2026-05-07T14:58:07.255906" elapsed="0.000080"/>
+<branch type="IF" condition="${alert_status}">
+<kw name="Get Alert Message">
+<var>${alert_text}</var>
+<status status="NOT RUN" start="2026-05-07T22:48:17.717103" elapsed="0.000086"/>
 </kw>
-<kw name="Should Not Be Empty" owner="BuiltIn">
-<arg>${msg}</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:07.256172" elapsed="0.000047"/>
+<kw name="Log" owner="BuiltIn">
+<arg>ALERT: ${alert_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-05-07T22:48:17.717355" elapsed="0.000036"/>
 </kw>
-<status status="NOT RUN" start="2026-05-07T14:58:07.255063" elapsed="0.001222"/>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<arg>ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="NOT RUN" start="2026-05-07T22:48:17.717510" elapsed="0.000033"/>
+</kw>
+<return>
+<value>${alert_text}</value>
+<status status="NOT RUN" start="2026-05-07T22:48:17.717602" elapsed="0.000036"/>
+</return>
+<status status="NOT RUN" start="2026-05-07T22:48:17.716756" elapsed="0.000931"/>
 </branch>
-<branch type="ELSE IF" condition="'${type}' == 'email_invalid'">
-<kw name="Get Browser Validation Message" owner="login_page">
-<kw name="Get Element Attribute" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:07.274400" level="INFO">${msg} = Please include an '@' in the email address. 'lethithom2004' is missing an '@'.</msg>
+<status status="PASS" start="2026-05-07T22:48:17.716729" elapsed="0.001003"/>
+</if>
+<return>
+<value>""</value>
+<status status="PASS" start="2026-05-07T22:48:17.717773" elapsed="0.000042"/>
+</return>
+<msg time="2026-05-07T22:48:17.717956" level="INFO">${alert_msg} = ""</msg>
+<var>${alert_msg}</var>
+<status status="PASS" start="2026-05-07T22:48:10.425142" elapsed="7.292848"/>
+</kw>
+<kw name="Get Result Message" owner="update_cart_page">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Get Text" owner="SeleniumLibrary">
+<arg>${RESULT_MESSAGE}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-07T22:48:17.718815" elapsed="0.018654"/>
+</kw>
+<msg time="2026-05-07T22:48:17.737649" level="INFO">${status} = PASS</msg>
+<msg time="2026-05-07T22:48:17.737707" level="INFO">${msg} = BẠN CÓ 1 SẢN PHẨM TRONG GIỎ HÀNG.</msg>
+<var>${status}</var>
 <var>${msg}</var>
-<arg>${locator}</arg>
-<arg>validationMessage</arg>
-<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:07.256977" elapsed="0.017482"/>
+<arg>Get Text</arg>
+<arg>${RESULT_MESSAGE}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-05-07T22:48:17.718479" elapsed="0.019261"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'FAIL'">
+<return>
+<value>""</value>
+<status status="NOT RUN" start="2026-05-07T22:48:17.738030" elapsed="0.000032"/>
+</return>
+<status status="NOT RUN" start="2026-05-07T22:48:17.737862" elapsed="0.000251"/>
+</branch>
+<status status="PASS" start="2026-05-07T22:48:17.737834" elapsed="0.000320"/>
+</if>
+<kw name="Convert To Lower Case" owner="String">
+<msg time="2026-05-07T22:48:17.738505" level="INFO">${msg} = bạn có 1 sản phẩm trong giỏ hàng.</msg>
+<var>${msg}</var>
+<arg>${msg}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="PASS" start="2026-05-07T22:48:17.738282" elapsed="0.000259"/>
 </kw>
 <return>
 <value>${msg}</value>
-<status status="PASS" start="2026-05-07T14:58:07.274563" elapsed="0.000066"/>
+<status status="PASS" start="2026-05-07T22:48:17.738608" elapsed="0.000046"/>
 </return>
-<msg time="2026-05-07T14:58:07.274809" level="INFO">${msg} = Please include an '@' in the email address. 'lethithom2004' is missing an '@'.</msg>
+<msg time="2026-05-07T22:48:17.738805" level="INFO">${msg} = bạn có 1 sản phẩm trong giỏ hàng.</msg>
 <var>${msg}</var>
-<arg>${USERNAME_INPUT}</arg>
-<status status="PASS" start="2026-05-07T14:58:07.256652" elapsed="0.018194"/>
+<status status="PASS" start="2026-05-07T22:48:17.718215" elapsed="0.020623"/>
 </kw>
-<kw name="Should Not Be Empty" owner="BuiltIn">
-<msg time="2026-05-07T14:58:07.275347" level="INFO">Length is 78.</msg>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2026-05-07T22:48:17.739398" level="INFO">${final_msg} = ""</msg>
+<var>${final_msg}</var>
+<arg>'${alert_msg}'!=''</arg>
+<arg>${alert_msg}</arg>
 <arg>${msg}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2026-05-07T22:48:17.738971" elapsed="0.000465"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-05-07T22:48:17.739845" level="INFO">Final Message: ""</msg>
+<arg>Final Message: ${final_msg}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-05-07T22:48:17.739573" elapsed="0.000328"/>
+</kw>
+<if>
+<branch type="IF" condition="'${type}' == 'update'">
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${final_msg}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<status status="PASS" start="2026-05-07T14:58:07.275002" elapsed="0.000407"/>
+<status status="NOT RUN" start="2026-05-07T22:48:17.740193" elapsed="0.000036"/>
 </kw>
-<status status="PASS" start="2026-05-07T14:58:07.256357" elapsed="0.019114"/>
+<status status="NOT RUN" start="2026-05-07T22:48:17.739997" elapsed="0.000283"/>
 </branch>
-<branch type="ELSE IF" condition="'${type}' == 'login_fail'">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<arg>${ERROR_MESSAGE}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:07.275656" elapsed="0.000037"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:07.275525" elapsed="0.000219"/>
-</branch>
-<branch type="ELSE IF" condition="'${type}' == 'login_success'">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<arg>${SUCCESS_MESSAGE}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:07.275971" elapsed="0.000039"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:07.275790" elapsed="0.000272"/>
-</branch>
-<status status="PASS" start="2026-05-07T14:58:07.254921" elapsed="0.021185"/>
+<status status="PASS" start="2026-05-07T22:48:17.739974" elapsed="0.000352"/>
 </if>
-<kw name="Reload Page" owner="SeleniumLibrary">
-<doc>Simulates user reloading page.</doc>
-<status status="PASS" start="2026-05-07T14:58:07.276205" elapsed="0.418276"/>
-</kw>
-<var name="${item}">{'email': 'lethithom2004', 'password': 'dgc127', 'type': 'email_invalid', 'expected': "Please include an '@'"}</var>
-<status status="PASS" start="2026-05-07T14:58:06.126080" elapsed="1.568497"/>
+<var name="${item}">{'input': '1', 'type': 'one_product', 'expected': '1 sản phẩm'}</var>
+<status status="PASS" start="2026-05-07T22:48:03.993075" elapsed="13.747283"/>
 </iter>
 <iter>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:07.697030" level="INFO">${email} = lethithom2004@gmail.com</msg>
-<var>${email}</var>
-<arg>${item['email']}</arg>
+<msg time="2026-05-07T22:48:17.741323" level="INFO">${quantity} = 100000</msg>
+<var>${quantity}</var>
+<arg>${item['input']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:07.695457" elapsed="0.001650"/>
+<status status="PASS" start="2026-05-07T22:48:17.740672" elapsed="0.000689"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:07.699315" level="INFO">${password} = </msg>
-<var>${password}</var>
-<arg>${item['password']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:07.697417" elapsed="0.001988"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:07.701238" level="INFO">${type} = password_empty</msg>
+<msg time="2026-05-07T22:48:17.742118" level="INFO">${type} = large_quantity</msg>
 <var>${type}</var>
 <arg>${item['type']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:07.699727" elapsed="0.001590"/>
+<status status="PASS" start="2026-05-07T22:48:17.741495" elapsed="0.000661"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-05-07T14:58:07.702210" level="INFO">===== lethithom2004@gmail.com =====</msg>
-<arg>===== ${email} =====</arg>
+<msg time="2026-05-07T22:48:17.742574" level="INFO">===== Quantity: 100000 =====</msg>
+<arg>===== Quantity: ${quantity} =====</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-05-07T14:58:07.701607" elapsed="0.000720"/>
+<status status="PASS" start="2026-05-07T22:48:17.742287" elapsed="0.000344"/>
 </kw>
-<kw name="Login With Data" owner="login_keywords">
-<kw name="Click Login Link" owner="login_page">
+<kw name="Update Cart With Data" owner="update_cart_keywords">
+<kw name="Open Product Page" owner="update_cart_page">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-07T22:48:17.743507" level="INFO">Opening url 'https://bepxinhvn.vn/products/10-hop-mica-nhua-trong-quai-xach-16x9x9cm'</msg>
+<arg>${PRODUCT_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-07T22:48:17.743366" elapsed="0.752557"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ADD_TO_CART}</arg>
+<arg>15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-07T22:48:18.496744" elapsed="0.020268"/>
+</kw>
+<status status="PASS" start="2026-05-07T22:48:17.743130" elapsed="0.774247"/>
+</kw>
+<kw name="Add To Cart" owner="update_cart_page">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:07.704206" level="INFO">Clicking element 'xpath=//a[contains(text(),'Đăng nhập')]'.</msg>
-<arg>${A_LOGIN}</arg>
+<msg time="2026-05-07T22:48:18.519123" level="INFO">Clicking element 'id=add-to-cart'.</msg>
+<arg>${ADD_TO_CART}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:07.703782" elapsed="0.624747"/>
+<status status="PASS" start="2026-05-07T22:48:18.518307" elapsed="0.280403"/>
 </kw>
-<status status="PASS" start="2026-05-07T14:58:07.703330" elapsed="0.625326"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-07T22:48:20.800021" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-07T22:48:18.798957" elapsed="2.001428"/>
 </kw>
-<kw name="Enter Email" owner="login_page">
+<status status="PASS" start="2026-05-07T22:48:18.517605" elapsed="2.283164"/>
+</kw>
+<kw name="Update Quantity" owner="update_cart_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${QUANTITY_INPUT}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-07T22:48:20.802659" elapsed="0.050760"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${QUANTITY_INPUT}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-07T22:48:20.853880" elapsed="0.085822"/>
+</kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:08.329462" level="INFO">Typing text 'lethithom2004@gmail.com' into text field 'id=customer_email'.</msg>
-<arg>${USERNAME_INPUT}</arg>
-<arg>${email}</arg>
+<msg time="2026-05-07T22:48:20.942116" level="INFO">Typing text '100000' into text field 'id=quantity1'.</msg>
+<arg>${QUANTITY_INPUT}</arg>
+<arg>${quantity}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:08.329215" elapsed="0.273713"/>
+<status status="PASS" start="2026-05-07T22:48:20.940554" elapsed="0.108646"/>
 </kw>
-<arg>${email}</arg>
-<status status="PASS" start="2026-05-07T14:58:08.328844" elapsed="0.274453"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-07T22:48:22.050098" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-07T22:48:21.049456" elapsed="1.001201"/>
 </kw>
-<kw name="Enter Password" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:08.604816" level="INFO">Typing text '' into text field 'id=customer_password'.</msg>
-<arg>${PASSWORD_INPUT}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:08.604341" elapsed="0.100742"/>
+<arg>${quantity}</arg>
+<status status="PASS" start="2026-05-07T22:48:20.801457" elapsed="1.249614"/>
 </kw>
-<arg>${password}</arg>
-<status status="PASS" start="2026-05-07T14:58:08.603681" elapsed="0.101534"/>
+<arg>${quantity}</arg>
+<status status="PASS" start="2026-05-07T22:48:17.742802" elapsed="4.308562"/>
 </kw>
-<kw name="Click Login Button" owner="login_page">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:08.705922" level="INFO">Clicking button 'xpath=//input[@value='Đăng nhập']'.</msg>
-<arg>${LOGIN_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:08.705706" elapsed="0.078359"/>
+<kw name="Click Update Button" owner="update_cart_page">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${UPDATE_BUTTON}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-07T22:48:22.053582" elapsed="0.053567"/>
 </kw>
-<status status="PASS" start="2026-05-07T14:58:08.705427" elapsed="0.079119"/>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-05-07T22:48:22.109163" level="INFO">Executing JavaScript:
+document.getElementById('update-cart-modal').click()
+Without any arguments.</msg>
+<arg>document.getElementById('update-cart-modal').click()</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-05-07T22:48:22.107809" elapsed="0.022609"/>
 </kw>
-<arg>${email}</arg>
-<arg>${password}</arg>
-<status status="PASS" start="2026-05-07T14:58:07.702711" elapsed="1.082242"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-07T22:48:24.132754" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-07T22:48:22.131290" elapsed="2.001862"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Alert Should Be Present" owner="SeleniumLibrary">
+<msg time="2026-05-07T22:48:24.136044" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<msg time="2026-05-07T22:48:29.405505" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-101.png"&gt;&lt;img src="selenium-screenshot-101.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-05-07T22:48:29.405684" level="FAIL">Alert not found in 5 seconds.</msg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<status status="FAIL" start="2026-05-07T22:48:24.135390" elapsed="5.271941">Alert not found in 5 seconds.</status>
+</kw>
+<msg time="2026-05-07T22:48:29.407511" level="INFO">${alert_status} = False</msg>
+<var>${alert_status}</var>
+<arg>Alert Should Be Present</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-05-07T22:48:24.133776" elapsed="5.273778"/>
 </kw>
 <if>
-<branch type="IF" condition="'${type}' == 'email_empty'">
-<kw name="Get Browser Validation Message" owner="login_page">
-<var>${msg}</var>
-<arg>${USERNAME_INPUT}</arg>
-<status status="NOT RUN" start="2026-05-07T14:58:08.785993" elapsed="0.000053"/>
-</kw>
-<kw name="Should Not Be Empty" owner="BuiltIn">
-<arg>${msg}</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:08.786187" elapsed="0.000039"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:08.785398" elapsed="0.000893"/>
-</branch>
-<branch type="ELSE IF" condition="'${type}' == 'email_invalid'">
-<kw name="Get Browser Validation Message" owner="login_page">
-<var>${msg}</var>
-<arg>${USERNAME_INPUT}</arg>
-<status status="NOT RUN" start="2026-05-07T14:58:08.786611" elapsed="0.000041"/>
-</kw>
-<kw name="Should Not Be Empty" owner="BuiltIn">
-<arg>${msg}</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:08.786769" elapsed="0.000035"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:08.786343" elapsed="0.000512"/>
-</branch>
-<branch type="ELSE IF" condition="'${type}' == 'login_fail'">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<arg>${ERROR_MESSAGE}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:08.787112" elapsed="0.000036"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:08.786902" elapsed="0.000297"/>
-</branch>
-<branch type="ELSE IF" condition="'${type}' == 'login_success'">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<arg>${SUCCESS_MESSAGE}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:08.787454" elapsed="0.000040"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:08.787246" elapsed="0.000300"/>
-</branch>
-<status status="PASS" start="2026-05-07T14:58:08.785340" elapsed="0.002251"/>
-</if>
-<kw name="Reload Page" owner="SeleniumLibrary">
-<doc>Simulates user reloading page.</doc>
-<status status="PASS" start="2026-05-07T14:58:08.787692" elapsed="0.115268"/>
-</kw>
-<var name="${item}">{'email': 'lethithom2004@gmail.com', 'password': '', 'type': 'password_empty', 'expected': 'Please fill out this field'}</var>
-<status status="PASS" start="2026-05-07T14:58:07.695148" elapsed="1.209134"/>
-</iter>
-<iter>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:08.907646" level="INFO">${email} = lethithom@gmail.com</msg>
-<var>${email}</var>
-<arg>${item['email']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:08.905235" elapsed="0.002512"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:08.912534" level="INFO">${password} = thomne</msg>
-<var>${password}</var>
-<arg>${item['password']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:08.909732" elapsed="0.002902"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:08.916562" level="INFO">${type} = login_fail</msg>
-<var>${type}</var>
-<arg>${item['type']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:08.912963" elapsed="0.004095"/>
+<branch type="IF" condition="${alert_status}">
+<kw name="Get Alert Message">
+<var>${alert_text}</var>
+<status status="NOT RUN" start="2026-05-07T22:48:29.407921" elapsed="0.000042"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-05-07T14:58:08.918487" level="INFO">===== lethithom@gmail.com =====</msg>
-<arg>===== ${email} =====</arg>
+<arg>ALERT: ${alert_text}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-05-07T14:58:08.917423" elapsed="0.001393"/>
+<status status="NOT RUN" start="2026-05-07T22:48:29.408104" elapsed="0.000038"/>
 </kw>
-<kw name="Login With Data" owner="login_keywords">
-<kw name="Click Login Link" owner="login_page">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:08.921248" level="INFO">Clicking element 'xpath=//a[contains(text(),'Đăng nhập')]'.</msg>
-<arg>${A_LOGIN}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:08.920794" elapsed="0.732138"/>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<arg>ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="NOT RUN" start="2026-05-07T22:48:29.408274" elapsed="0.000036"/>
 </kw>
-<status status="PASS" start="2026-05-07T14:58:08.920211" elapsed="0.733003"/>
+<return>
+<value>${alert_text}</value>
+<status status="NOT RUN" start="2026-05-07T22:48:29.408373" elapsed="0.000035"/>
+</return>
+<status status="NOT RUN" start="2026-05-07T22:48:29.407685" elapsed="0.000773"/>
+</branch>
+<status status="PASS" start="2026-05-07T22:48:29.407658" elapsed="0.000845"/>
+</if>
+<return>
+<value>""</value>
+<status status="PASS" start="2026-05-07T22:48:29.408545" elapsed="0.000045"/>
+</return>
+<msg time="2026-05-07T22:48:29.408738" level="INFO">${alert_msg} = ""</msg>
+<var>${alert_msg}</var>
+<status status="PASS" start="2026-05-07T22:48:22.052334" elapsed="7.356441"/>
 </kw>
-<kw name="Enter Email" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:09.654414" level="INFO">Typing text 'lethithom@gmail.com' into text field 'id=customer_email'.</msg>
-<arg>${USERNAME_INPUT}</arg>
-<arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:09.654039" elapsed="0.269784"/>
+<kw name="Get Result Message" owner="update_cart_page">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Get Text" owner="SeleniumLibrary">
+<arg>${RESULT_MESSAGE}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-07T22:48:29.409682" elapsed="0.018736"/>
 </kw>
-<arg>${email}</arg>
-<status status="PASS" start="2026-05-07T14:58:09.653598" elapsed="0.270473"/>
-</kw>
-<kw name="Enter Password" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:09.925737" level="INFO">Typing text 'thomne' into text field 'id=customer_password'.</msg>
-<arg>${PASSWORD_INPUT}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:09.925236" elapsed="0.116211"/>
-</kw>
-<arg>${password}</arg>
-<status status="PASS" start="2026-05-07T14:58:09.924464" elapsed="0.117123"/>
-</kw>
-<kw name="Click Login Button" owner="login_page">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:10.042598" level="INFO">Clicking button 'xpath=//input[@value='Đăng nhập']'.</msg>
-<arg>${LOGIN_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:10.042210" elapsed="0.106374"/>
-</kw>
-<status status="PASS" start="2026-05-07T14:58:10.041788" elapsed="0.106985"/>
-</kw>
-<arg>${email}</arg>
-<arg>${password}</arg>
-<status status="PASS" start="2026-05-07T14:58:08.919324" elapsed="1.229542"/>
+<msg time="2026-05-07T22:48:29.428599" level="INFO">${status} = PASS</msg>
+<msg time="2026-05-07T22:48:29.428660" level="INFO">${msg} = BẠN CÓ 100000 SẢN PHẨM TRONG GIỎ HÀNG.</msg>
+<var>${status}</var>
+<var>${msg}</var>
+<arg>Get Text</arg>
+<arg>${RESULT_MESSAGE}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-05-07T22:48:29.409311" elapsed="0.019383"/>
 </kw>
 <if>
-<branch type="IF" condition="'${type}' == 'email_empty'">
-<kw name="Get Browser Validation Message" owner="login_page">
-<var>${msg}</var>
-<arg>${USERNAME_INPUT}</arg>
-<status status="NOT RUN" start="2026-05-07T14:58:10.150530" elapsed="0.000159"/>
-</kw>
-<kw name="Should Not Be Empty" owner="BuiltIn">
-<arg>${msg}</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:10.151618" elapsed="0.000111"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:10.149157" elapsed="0.002701"/>
+<branch type="IF" condition="'${status}' == 'FAIL'">
+<return>
+<value>""</value>
+<status status="NOT RUN" start="2026-05-07T22:48:29.428993" elapsed="0.000032"/>
+</return>
+<status status="NOT RUN" start="2026-05-07T22:48:29.428817" elapsed="0.000261"/>
 </branch>
-<branch type="ELSE IF" condition="'${type}' == 'email_invalid'">
-<kw name="Get Browser Validation Message" owner="login_page">
-<var>${msg}</var>
-<arg>${USERNAME_INPUT}</arg>
-<status status="NOT RUN" start="2026-05-07T14:58:10.152730" elapsed="0.000058"/>
-</kw>
-<kw name="Should Not Be Empty" owner="BuiltIn">
-<arg>${msg}</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:10.152936" elapsed="0.000039"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:10.151989" elapsed="0.001037"/>
-</branch>
-<branch type="ELSE IF" condition="'${type}' == 'login_fail'">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:10.589270" level="INFO">Current page contains element 'xpath=//div[@class='errors']'.</msg>
-<arg>${ERROR_MESSAGE}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2026-05-07T14:58:10.153340" elapsed="0.436048"/>
-</kw>
-<status status="PASS" start="2026-05-07T14:58:10.153078" elapsed="0.436398"/>
-</branch>
-<branch type="ELSE IF" condition="'${type}' == 'login_success'">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<arg>${SUCCESS_MESSAGE}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:10.589723" elapsed="0.000044"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:10.589542" elapsed="0.000417"/>
-</branch>
-<status status="PASS" start="2026-05-07T14:58:10.149040" elapsed="0.440984"/>
+<status status="PASS" start="2026-05-07T22:48:29.428790" elapsed="0.000332"/>
 </if>
-<kw name="Reload Page" owner="SeleniumLibrary">
-<doc>Simulates user reloading page.</doc>
-<status status="PASS" start="2026-05-07T14:58:10.590149" elapsed="1.466284"/>
+<kw name="Convert To Lower Case" owner="String">
+<msg time="2026-05-07T22:48:29.429488" level="INFO">${msg} = bạn có 100000 sản phẩm trong giỏ hàng.</msg>
+<var>${msg}</var>
+<arg>${msg}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="PASS" start="2026-05-07T22:48:29.429254" elapsed="0.000272"/>
 </kw>
-<var name="${item}">{'email': 'lethithom@gmail.com', 'password': 'thomne', 'type': 'login_fail', 'expected': 'Thông tin đăng nhập không hợp lệ'}</var>
-<status status="PASS" start="2026-05-07T14:58:08.904945" elapsed="3.151580"/>
-</iter>
-<iter>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:12.057706" level="INFO">${email} = thom123@gmail.com</msg>
-<var>${email}</var>
-<arg>${item['email']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:12.056954" elapsed="0.000793"/>
+<return>
+<value>${msg}</value>
+<status status="PASS" start="2026-05-07T22:48:29.429596" elapsed="0.000049"/>
+</return>
+<msg time="2026-05-07T22:48:29.429803" level="INFO">${msg} = bạn có 100000 sản phẩm trong giỏ hàng.</msg>
+<var>${msg}</var>
+<status status="PASS" start="2026-05-07T22:48:29.409020" elapsed="0.020819"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:12.058561" level="INFO">${password} = Thom12;hi</msg>
-<var>${password}</var>
-<arg>${item['password']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:12.057895" elapsed="0.000705"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-05-07T14:58:12.059393" level="INFO">${type} = login_success</msg>
-<var>${type}</var>
-<arg>${item['type']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-05-07T14:58:12.058738" elapsed="0.000695"/>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2026-05-07T22:48:29.430434" level="INFO">${final_msg} = ""</msg>
+<var>${final_msg}</var>
+<arg>'${alert_msg}'!=''</arg>
+<arg>${alert_msg}</arg>
+<arg>${msg}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2026-05-07T22:48:29.429981" elapsed="0.000491"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-05-07T14:58:12.059885" level="INFO">===== thom123@gmail.com =====</msg>
-<arg>===== ${email} =====</arg>
+<msg time="2026-05-07T22:48:29.431088" level="INFO">Final Message: ""</msg>
+<arg>Final Message: ${final_msg}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-05-07T14:58:12.059575" elapsed="0.000372"/>
-</kw>
-<kw name="Login With Data" owner="login_keywords">
-<kw name="Click Login Link" owner="login_page">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:12.061331" level="INFO">Clicking element 'xpath=//a[contains(text(),'Đăng nhập')]'.</msg>
-<arg>${A_LOGIN}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:12.061126" elapsed="0.547670"/>
-</kw>
-<status status="PASS" start="2026-05-07T14:58:12.060876" elapsed="0.548051"/>
-</kw>
-<kw name="Enter Email" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:12.609694" level="INFO">Typing text 'thom123@gmail.com' into text field 'id=customer_email'.</msg>
-<arg>${USERNAME_INPUT}</arg>
-<arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:12.609451" elapsed="0.200575"/>
-</kw>
-<arg>${email}</arg>
-<status status="PASS" start="2026-05-07T14:58:12.609118" elapsed="0.201128"/>
-</kw>
-<kw name="Enter Password" owner="login_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:12.811526" level="INFO">Typing text 'Thom12;hi' into text field 'id=customer_password'.</msg>
-<arg>${PASSWORD_INPUT}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:12.811209" elapsed="0.147778"/>
-</kw>
-<arg>${password}</arg>
-<status status="PASS" start="2026-05-07T14:58:12.810586" elapsed="0.148532"/>
-</kw>
-<kw name="Click Login Button" owner="login_page">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:12.959804" level="INFO">Clicking button 'xpath=//input[@value='Đăng nhập']'.</msg>
-<arg>${LOGIN_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-05-07T14:58:12.959588" elapsed="0.603612"/>
-</kw>
-<status status="PASS" start="2026-05-07T14:58:12.959310" elapsed="0.604014"/>
-</kw>
-<arg>${email}</arg>
-<arg>${password}</arg>
-<status status="PASS" start="2026-05-07T14:58:12.060129" elapsed="1.503269"/>
+<status status="PASS" start="2026-05-07T22:48:29.430725" elapsed="0.000426"/>
 </kw>
 <if>
-<branch type="IF" condition="'${type}' == 'email_empty'">
-<kw name="Get Browser Validation Message" owner="login_page">
-<var>${msg}</var>
-<arg>${USERNAME_INPUT}</arg>
-<status status="NOT RUN" start="2026-05-07T14:58:13.564446" elapsed="0.000189"/>
-</kw>
+<branch type="IF" condition="'${type}' == 'update'">
 <kw name="Should Not Be Empty" owner="BuiltIn">
-<arg>${msg}</arg>
+<arg>${final_msg}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:13.564786" elapsed="0.000040"/>
+<status status="NOT RUN" start="2026-05-07T22:48:29.431494" elapsed="0.000168"/>
 </kw>
-<status status="NOT RUN" start="2026-05-07T14:58:13.563728" elapsed="0.001159"/>
+<status status="NOT RUN" start="2026-05-07T22:48:29.431262" elapsed="0.000462"/>
 </branch>
-<branch type="ELSE IF" condition="'${type}' == 'email_invalid'">
-<kw name="Get Browser Validation Message" owner="login_page">
-<var>${msg}</var>
-<arg>${USERNAME_INPUT}</arg>
-<status status="NOT RUN" start="2026-05-07T14:58:13.565218" elapsed="0.000041"/>
-</kw>
-<kw name="Should Not Be Empty" owner="BuiltIn">
-<arg>${msg}</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:13.565377" elapsed="0.000036"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:13.564939" elapsed="0.000524"/>
-</branch>
-<branch type="ELSE IF" condition="'${type}' == 'login_fail'">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<arg>${ERROR_MESSAGE}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="NOT RUN" start="2026-05-07T14:58:13.565722" elapsed="0.000036"/>
-</kw>
-<status status="NOT RUN" start="2026-05-07T14:58:13.565511" elapsed="0.000298"/>
-</branch>
-<branch type="ELSE IF" condition="'${type}' == 'login_success'">
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2026-05-07T14:58:13.582216" level="INFO">Current page contains element 'xpath=//h1[contains(text(),'Tài khoản của bạn')]'.</msg>
-<arg>${SUCCESS_MESSAGE}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2026-05-07T14:58:13.566560" elapsed="0.015785"/>
-</kw>
-<status status="PASS" start="2026-05-07T14:58:13.565934" elapsed="0.016504"/>
-</branch>
-<status status="PASS" start="2026-05-07T14:58:13.563600" elapsed="0.018903"/>
+<status status="PASS" start="2026-05-07T22:48:29.431238" elapsed="0.000537"/>
 </if>
-<kw name="Reload Page" owner="SeleniumLibrary">
-<doc>Simulates user reloading page.</doc>
-<status status="PASS" start="2026-05-07T14:58:13.582653" elapsed="0.510668"/>
-</kw>
-<var name="${item}">{'email': 'thom123@gmail.com', 'password': 'Thom12;hi', 'type': 'login_success', 'expected': 'TÀI KHOẢN CỦA BẠN'}</var>
-<status status="PASS" start="2026-05-07T14:58:12.056813" elapsed="2.036605"/>
+<var name="${item}">{'input': '100000', 'type': 'large_quantity', 'expected': '100000 sản phẩm'}</var>
+<status status="PASS" start="2026-05-07T22:48:17.740564" elapsed="11.691245"/>
 </iter>
 <var>${item}</var>
 <value>@{data}</value>
-<status status="PASS" start="2026-05-07T14:58:01.828571" elapsed="12.264927"/>
+<status status="PASS" start="2026-05-07T22:47:51.657125" elapsed="37.774748"/>
 </for>
-<status status="PASS" start="2026-05-07T14:58:01.823685" elapsed="12.270303"/>
+<status status="PASS" start="2026-05-07T22:47:51.646800" elapsed="37.785529"/>
 </test>
 <kw name="Close Browser" owner="common" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2026-05-07T14:58:14.095676" elapsed="3.180130"/>
+<status status="PASS" start="2026-05-07T22:48:29.434159" elapsed="3.225872"/>
 </kw>
-<status status="PASS" start="2026-05-07T14:58:14.095372" elapsed="3.180876"/>
+<status status="PASS" start="2026-05-07T22:48:29.433751" elapsed="3.226718"/>
 </kw>
-<status status="PASS" start="2026-05-07T14:57:52.871298" elapsed="24.405161"/>
+<status status="PASS" start="2026-05-07T22:47:47.332159" elapsed="45.328510"/>
 </suite>
 <statistics>
 <total>
@@ -835,7 +715,7 @@
 <tag>
 </tag>
 <suite>
-<stat name="Test Login" id="s1" pass="1" fail="0" skip="0">Test Login</stat>
+<stat name="Test Update Cart" id="s1" pass="1" fail="0" skip="0">Test Update Cart</stat>
 </suite>
 </statistics>
 <errors>
