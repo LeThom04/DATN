@@ -21,29 +21,24 @@ Enter Ho
 
     Input Text    ${LASTNAME_INPUT}    ${ho}
 
-
 Enter Ten
     [Arguments]    ${ten}
 
     Input Text    ${FIRSTNAME_INPUT}    ${ten}
-
 
 Enter Register Email
     [Arguments]    ${email}
 
     Input Text    ${EMAIL_INPUT}    ${email}
 
-
 Enter Register Password
     [Arguments]    ${matkhau}
 
     Input Text    ${PASSWORD_INPUT}    ${matkhau}
 
-
 Click Register Button
 
     Click Button    ${REGISTER_BUTTON}
-
 
 Get Browser Validation Message
     [Arguments]    ${locator}
