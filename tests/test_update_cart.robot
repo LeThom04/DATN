@@ -5,7 +5,6 @@ Resource   ../resources/update_cart_keywords.resource
 Resource   ../pages/update_cart_page.resource
 
 Suite Setup       Open Browser To Website
-Suite Teardown    Close Browser
 
 *** Variables ***
 ${DATA_TYPE}    json

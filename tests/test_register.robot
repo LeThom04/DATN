@@ -5,7 +5,6 @@ Resource    ../resources/common.resource
 Resource    ../resources/register_keywords.resource
 
 Suite Setup    Open Browser To Website
-Suite Teardown    Close Browser
 
 *** Variables ***
 ${DATA_TYPE}    json
