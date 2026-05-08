@@ -25,20 +25,16 @@ Update Cart Data Driven (Type)
 
         Update Cart With Data    ${quantity}
 
-        # 👉 Click + bắt alert (nếu có)
         ${alert_msg}=    Click Update Button
 
-        # 👉 Lấy message modal
         ${msg}=    Get Result Message
 
-        # 👉 Ưu tiên alert nếu có
         ${final_msg}=    Set Variable If
         ...    '${alert_msg}'!=''    ${alert_msg}
         ...    ${msg}
 
         Log    Final Message: ${final_msg}
 
-        # 👉 Assert giống LOGIN
         IF    '${type}' == 'update'
             Should Not Be Empty    ${final_msg}
         END

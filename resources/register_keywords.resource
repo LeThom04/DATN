@@ -12,7 +12,6 @@ Register With Data
     ...    ${matkhau}
     ...    ${type}
 
-    # ===== EMAIL RANDOM CHO CASE SUCCESS =====
     IF    '${type}' == 'register_success'
 
         ${random}=    Generate Random String    5    [NUMBERS]
@@ -29,7 +28,6 @@ Register With Data
 
     Click Register Button
 
-
 Validate Register Result
     [Arguments]    ${type}    ${expected}
 
@@ -41,7 +39,6 @@ Validate Register Result
     ${ho_msg}=       Get Browser Validation Message
     ...    ${LASTNAME_INPUT}
 
-    # ===== HTML5 =====
     IF    '${type}' == 'email_empty'
 
         Should Contain    ${email_msg}    ${expected}
@@ -58,7 +55,6 @@ Validate Register Result
 
         Should Contain    ${email_msg}    ${expected}
 
-    # ===== SUCCESS =====
     ELSE IF    '${type}' == 'register_success'
 
         Wait Until Element Is Visible

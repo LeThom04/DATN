@@ -28,7 +28,6 @@ Search Data Driven (Type)
         ${url}=    Get Current URL
         Log    URL: ${url}
 
-        # CHỈ cần check có search là pass
         Should Contain    ${url}    search
 
         Reload Page

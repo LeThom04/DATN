@@ -29,12 +29,10 @@ Update Quantity
 Click Update Button
     Wait Until Element Is Visible    ${UPDATE_BUTTON}    10s
 
-    # ✅ CLICK bằng JS để tránh Selenium crash khi có alert
     Execute JavaScript    document.getElementById('update-cart-modal').click()
 
     Sleep    2s
 
-    # ✅ BẮT ALERT NGAY SAU CLICK
     ${alert_status}=    Run Keyword And Return Status    Alert Should Be Present
 
     IF    ${alert_status}
