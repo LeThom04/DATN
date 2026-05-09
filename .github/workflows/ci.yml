@@ -1,36 +1,45 @@
-name: Robot Framework CI
+name: Python CI
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches:
+      - main
+      - master
+
   pull_request:
+    branches:
+      - main
+      - master
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout source code
       uses: actions/checkout@v4
 
-    - name: Setup Python
+    - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
 
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
+        python -m pip install --upgrade pip
+        pip install robotframework
+        pip install robotframework-seleniumlibrary
+        pip install selenium
 
-    - name: Install Chrome
-      uses: browser-actions/setup-chrome@v1
-
-    - name: Run Robot Tests
+    - name: Run Robot Framework tests
       run: |
-        robot -d reports tests/
+        robot tests/
 
-    - name: Upload Report
+    - name: Upload Robot Framework Reports
       uses: actions/upload-artifact@v4
       with:
         name: robot-report
-        path: reports
+        path: |
+          report.html
+          log.html
+          output.xml
