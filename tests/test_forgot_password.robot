@@ -5,6 +5,7 @@ Resource    ../resources/forgot_password_keywords.resource
 Resource    ../pages/forgot_password_page.resource
 
 Suite Setup    Open Browser To Website
+Suite Teardown    Close Browser
 
 *** Variables ***
 ${DATA_TYPE}    json

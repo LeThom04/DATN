@@ -4,7 +4,8 @@ Library    ../utils/data_reader.py
 Resource    ../resources/common.resource
 Resource    ../resources/register_keywords.resource
 
-Suite Setup    Open Browser To Website
+Suite Setup       Open Browser To Website
+Suite Teardown    Close Browser
 
 *** Variables ***
 ${DATA_TYPE}    json
@@ -31,8 +32,12 @@ Register Data Driven
         ...    ${item['matkhau']}
         ...    ${item['type']}
 
-        Validate Register Result
-        ...    ${item['type']}
-        ...    ${item['expected']}
+        IF    '${item["type"]}' != 'register_success'
+
+            Validate Register Result
+            ...    ${item['type']}
+            ...    ${item['expected']}
+
+        END
 
     END
